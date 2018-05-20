@@ -90,35 +90,35 @@ The model is a LeNet with dropout layers added to the terminal fully connected l
 
 I use the vanilla gradientDescentOptimizer for my model. The hyperparameters that I use for the solution are:
 
-* Learning Rate: 0.001
-* Batch Size: 128 (use powers of 2)
-* Number of Epochs: 50 (I refrain using larger number of epochs because training time is extensively long)
-* Mean: 0 (for initializing with random floats)
-* Standard Deviation: 0.1 (for initializing with random floats)
+* Learning Rate: `0.001`
+* Batch Size: `128` (use powers of 2)
+* Number of Epochs: `50` (I refrain using larger number of epochs because training time is extensively long)
+* Mean: `0` (for initializing with random floats)
+* Standard Deviation: `0.1` (for initializing with random floats)
 
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. 
 
 I kept a log of enlisting significant changes in my model while training it.
 
 #### Log:
-    1. 5/18/2018 - Training Accuracy 99.4%, Validation Accuracy 92.3%
+    1. 5/18/2018 - Training Accuracy `99.4%`, Validation Accuracy `92.3%`
         - preprocessing: simple normalization: (pixel - 128)/128
         - lr: 0.001, batch: 128, epoch: 50, mu: 0, sigma: 0.1
         - Seems to be overfitting
-    2. 5/18/2018 - Training Accuracy 89.9%, Validation Accuracy 91.1%
+    2. 5/18/2018 - Training Accuracy `89.9%`, Validation Accuracy `91.1%`
         - added dropout at the fully connected layers
         - lr: 0.0015, batch: 128, epoch: 50, mu: 0, sigma: 0.1
-    3. 5/18/2018 - Training Accuracy 94.2%, Validation Accuracy 92.6%
+    3. 5/18/2018 - Training Accuracy `94.2%`, Validation Accuracy `92.6%`
         - preprocessing: normalization and grayscaling
         - everything else remains the same
-    4. 5/18/2018 - Training Accuracy 94.9% Validation Accuracy 94.1%
+    4. 5/18/2018 - Training Accuracy `94.9%` Validation Accuracy `94.1%`
         - preprocessing: same
         - hyperparameter: everything stays the same except batch becomes 200
         - Try increasing learning rate 
-    5. 5/19/2018 - Training Accuracy 85.0%, Validation Accuracy 86.7%
+    5. 5/19/2018 - Training Accuracy `85.0%`, Validation Accuracy `86.7%`
         - preprocessing: same
         - lr: 0.003 and everything else is the same
-    6. 5/19/2018 - Training Accuracy 97.0%, Validation Accuracy 96.4%
+    6. 5/19/2018 - Training Accuracy `97.0%`, Validation Accuracy `96.4%`
         - preprocessing: find bugs in preprocessing: didn't divide properly
         - pixel - 128/128 instead of (pixel - 128)/128
         - lr: 0.001 and everything else is the same
