@@ -42,16 +42,19 @@ This data set does not have a equal distribution across all labels.
 
 First, the data are converted to grayscale image by averaging the three color channels.
 
-Original Images
+**Original Images:**
+
 ![Original Img][image2]
-Result
+
+**Result:**
+
 ![Grayscale][image3]
 
 A more conventional method of normalization is to subtract each pixel by the mean and divide by the mean of the pixel value across the entire training set.
 
 However I normalize the data set by using the following formula for each pixel:
 
-    (pixel - 128) / 128
+`(pixel - 128) / 128`
 
 I use this estimate because I want to avoid introducing more influence of the training set in my model when preprocessing the validation set and testing set (perhaps it is futile) to prevent overfitting.
 
@@ -95,28 +98,28 @@ I use the vanilla gradientDescentOptimizer for my model. The hyperparameters tha
 I kept a log of enlisting significant changes in my model while training it.
 
 #### Log:
-1. 5/18/2018 - Training Accuracy 99.4%, Validation Accuracy 92.3%
-    - preprocessing: simple normalization: (pixel - 128)/128
-    - lr: 0.001, batch: 128, epoch: 50, mu: 0, sigma: 0.1
-    - Seems to be overfitting
-2. 5/18/2018 - Training Accuracy 89.9%, Validation Accuracy 91.1%
-    - added dropout at the fully connected layers
-    - lr: 0.0015, batch: 128, epoch: 50, mu: 0, sigma: 0.1
-3. 5/18/2018 - Training Accuracy 94.2%, Validation Accuracy 92.6%
-    - preprocessing: normalization and grayscaling
-    - everything else remains the same
-4. 5/18/2018 - Training Accuracy 94.9% Validation Accuracy 94.1%
-    - preprocessing: same
-    - hyperparameter: everything stays the same except batch becomes 200
-    - Try increasing learning rate 
-5. 5/19/2018 - Training Accuracy 85.0%, Validation Accuracy 86.7%
-    - preprocessing: same
-    - lr: 0.003 and everything else is the same
-6. 5/19/2018 - Training Accuracy 97.0%, Validation Accuracy 96.4%
-    - preprocessing: find bugs in preprocessing: didn't divide properly
-    - pixel - 128/128 instead of (pixel - 128)/128
-    - lr: 0.001 and everything else is the same
-    - Much better convergence
+    1. 5/18/2018 - Training Accuracy 99.4%, Validation Accuracy 92.3%
+        - preprocessing: simple normalization: (pixel - 128)/128
+        - lr: 0.001, batch: 128, epoch: 50, mu: 0, sigma: 0.1
+        - Seems to be overfitting
+    2. 5/18/2018 - Training Accuracy 89.9%, Validation Accuracy 91.1%
+        - added dropout at the fully connected layers
+        - lr: 0.0015, batch: 128, epoch: 50, mu: 0, sigma: 0.1
+    3. 5/18/2018 - Training Accuracy 94.2%, Validation Accuracy 92.6%
+        - preprocessing: normalization and grayscaling
+        - everything else remains the same
+    4. 5/18/2018 - Training Accuracy 94.9% Validation Accuracy 94.1%
+        - preprocessing: same
+        - hyperparameter: everything stays the same except batch becomes 200
+        - Try increasing learning rate 
+    5. 5/19/2018 - Training Accuracy 85.0%, Validation Accuracy 86.7%
+        - preprocessing: same
+        - lr: 0.003 and everything else is the same
+    6. 5/19/2018 - Training Accuracy 97.0%, Validation Accuracy 96.4%
+        - preprocessing: find bugs in preprocessing: didn't divide properly
+        - pixel - 128/128 instead of (pixel - 128)/128
+        - lr: 0.001 and everything else is the same
+        - Much better convergence
 
 
 As a starting point, I use the LeNet as my model architecture. I refer to the LeNet lab for the initial hyperparameters. I achieve a high training accuracy (99%) but a lower validation accuracy (92%) in my first round. The overfitting issue is obvious, so I decide to add dropout layers to the fully connected layers in the convnet 
@@ -129,7 +132,7 @@ The accuracy improves to around 94%, so I decide to reduce the number of epoch b
 
 Instead, I turn to the preprocess stage to create better convergence. I realize that there is a bug in the preprocessing stage such that I did not properly normalize my data. Fittinng this issue immediate boost the model's performance to 96% validation accuarcy.
 
-Final model results were:
+**Final model results were:**
 * training set accuracy:   `97.6%`
 * validation set accuracy: `96.9%`
 * test set accuracy:       `94.2%`
