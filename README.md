@@ -210,9 +210,15 @@ A closer look at the softmax probability yielded by the model's prediction on th
 
 The model predicts with a great certainty on the '30km/h', 'Keep Right' and 'Road Work' signs. It's strange to see softmax output 100% on a label, but I believe that this could be just a round-off errors with the output decimal precision. 
 
-The model is less certain on predicting the stop sign. The second candidate is road work. On its false prediction of the 'Children Crossing' sign as a 'Dangerous curve to the right' sign, we actually see that the correct label is one of the top 5 prediction at 0.29%, and the model is processing with noise.
+The model is less certain on predicting the stop sign. The second candidate is road work. On its false prediction of the 'Children Crossing' sign as a 'Dangerous curve to the right' sign, we actually see that the correct label is one of the top 5 prediction at 0.29%.
 
-The model seems to be able to detect and infer the prediction from simple shapes like numbers, arrows and letters. However, it has some difficulties distinguishing complex shape like a person, and perhaps overfits itself on detecting road work, because we can see the presence of the label as the second prediction candidate on lables with less certainty.
+Looking again at the data set distribution below: 
+
+![Data Set Distribution][image1]
+
+The top 3 prediction for the incorrectly labeled 'Children crossing' sign image are: `Dangerous curve to the right - 83.9%`(Label 20), `Road Work - 14.2%` (Label 25), and `Keep Right - 1.1%`(Label 40). These top labels are all having relatively fewer amount of samples in the data set. I believe that the model does not have enough sample to correctly classify these labels and is underfitting these scarce labels.
+
+The model seems to be able to detect and infer the prediction from simple shapes like numbers, arrows and letters. However, it has some difficulties distinguishing complex shape like the profile of cartoon person.
 
 #### Acknowledgement
 
