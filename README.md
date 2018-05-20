@@ -216,8 +216,9 @@ The model seems to be able to detect and infer the prediction from simple shapes
 
 #### Acknowledgement
 
-I reference the [Standford CS231n course](http://cs231n.stanford.edu/) for further understanding of the content
-I also refer to the following GitHub repository for inspiration and output format
+I reference the [Standford CS231n course](http://cs231n.stanford.edu/) for further understanding of the content.
+
+I also refer to the following GitHub repository for inspiration and output format:
 * [ericlavigne](https://github.com/ericlavigne/CarND-Traffic-Sign-Classifier/blob/master/Traffic_Sign_Classifier.ipynb)
 * [eqbal](https://github.com/eqbal/CarND-Traffic-Sign-Classifier-Project)
 * [SealedSaint](https://github.com/SealedSaint/CarND-Term1-P2/blob/master/Traffic_Sign_Classifier.ipynb)
