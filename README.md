@@ -118,7 +118,7 @@ I kept a log of enlisting significant changes in my model while training it.
     5. 5/19/2018 - Training Accuracy `85.0%`, Validation Accuracy `86.7%`
         - preprocessing: same
         - lr: 0.003 and everything else is the same
-    6. 5/19/2018 - Training Accuracy `97.0%`, Validation Accuracy `96.4%`
+    6. 5/19/2018 - Training Accuracy `97.0%`, Validation Accuracy `96.4%
         - preprocessing: find bugs in preprocessing: didn't divide properly
         - pixel - 128/128 instead of (pixel - 128)/128
         - lr: 0.001 and everything else is the same
@@ -213,4 +213,12 @@ The model predicts with a great certainty on the '30km/h', 'Keep Right' and 'Roa
 The model is less certain on predicting the stop sign. The second candidate is road work. On its false prediction of the 'Children Crossing' sign as a 'Dangerous curve to the right' sign, we actually see that the correct label is one of the top 5 prediction at 0.29%, and the model is processing with noise.
 
 The model seems to be able to detect and infer the prediction from simple shapes like numbers, arrows and letters. However, it has some difficulties distinguishing complex shape like a person, and perhaps overfits itself on detecting road work, because we can see the presence of the label as the second prediction candidate on lables with less certainty.
+
+#### Acknowledgement
+
+I reference the [Standford CS231n course](http://cs231n.stanford.edu/) for further understanding of the content
+I also refer to the following GitHub repository for inspiration and output format
+* [ericlavigne](https://github.com/ericlavigne/CarND-Traffic-Sign-Classifier/blob/master/Traffic_Sign_Classifier.ipynb)
+* [eqbal](https://github.com/eqbal/CarND-Traffic-Sign-Classifier-Project)
+* [SealedSaint](https://github.com/SealedSaint/CarND-Term1-P2/blob/master/Traffic_Sign_Classifier.ipynb)
 
