@@ -88,7 +88,7 @@ The model is a LeNet with dropout layers added to the terminal fully connected l
 
 #### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
-I use the vanilla gradientDescentOptimizer for my model. The hyperparameters that I use for the solution are:
+I use the AdamOptimizer for my model. The hyperparameters that I use for the solution are:
 
 * Learning Rate: `0.001`
 * Batch Size: `128` (use powers of 2)
